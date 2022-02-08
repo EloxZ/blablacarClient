@@ -37,6 +37,7 @@
         $data = json_decode($res);
         $resUser = file_get_contents("https://blablacariw.herokuapp.com/users/edit/".$_GET['id_ajeno']);
         $dataUser = json_decode($resUser);
+        var_dump($dataUser);
     }
 
 ?>
