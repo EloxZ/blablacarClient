@@ -22,7 +22,7 @@ include './includes/header.php';
         foreach ($viajes as $viaje) {
             // Me traigo el nombre del conductor
             $data = file_get_contents("https://blablacariw.herokuapp.com/users/" . $viaje->id_conductor);
-            $nombre_conductor = json_decode($data)->data->usuario[0]->nombre;
+            $nombre_conductor = json_decode($data)->data->usuarios[0]->nombre;
         ?>
             <tr>
                 <td><?php echo $nombre_conductor; ?></td>
