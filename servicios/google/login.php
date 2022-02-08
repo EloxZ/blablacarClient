@@ -37,7 +37,7 @@ if (isset($_GET['code'])) {
 
     if ($result->data->isVerified) {
         $original = array(
-            "id" => $result->data->usuario[0]->_id,
+            "_id" => $result->data->usuario[0]->_id,
             "nombre" => $google_info->givenName,
             "apellido" => $google_info->familyName,
             "email" => $google_info->email
