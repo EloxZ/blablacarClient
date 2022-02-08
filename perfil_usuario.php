@@ -83,7 +83,9 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['token'])) {
             </tr>
         <?php } ?>
     </table>
-<?php } else { ?> <h3 style="margin-top:40px; margin-left:10px">No tienes ningún viaje reservado.</h3> <?php } ?>
+<?php } else { ?> <h3 style="margin-top:40px; margin-left:10px">No tienes ningún viaje reservado.</h3> <?php }
+var_dump($user['_id']);
+?>
 
 <!--- TODO: Boton a conversación --->
 <form action="./servicios/mensajeria/lista_conversaciones.php" method="GET">
