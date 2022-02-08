@@ -4,9 +4,11 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['token'])) {
     $user = (array) $_SESSION['usuario'];
     $resViajes = file_get_contents("https://blablacariw.herokuapp.com/travels?driver=" . $user['_id']);
     $dataViajes = json_decode($resViajes);
+    var_dump($dataViajes);
 
     $resViajesRes = file_get_contents("https://blablacariw.herokuapp.com/travels?passenger=" . $user['_id']);
     $dataViajesRes = json_decode($resViajesRes);
+    var_dump($dataViajesRes);
 
     include "./includes/header.php";
 } else {
@@ -84,7 +86,7 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['token'])) {
         <?php } ?>
     </table>
 <?php } else { ?> <h3 style="margin-top:40px; margin-left:10px">No tienes ningún viaje reservado.</h3> <?php }
-var_dump($user);
+
 ?>
 
 <!--- TODO: Boton a conversación --->
