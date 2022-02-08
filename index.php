@@ -51,11 +51,11 @@ if (isset($_SESSION['viajes_encontrados']) && !empty($_SESSION['viajes_encontrad
         foreach ($viajes as $viaje) {
             // Me traigo el nombre del conductor
             $data = file_get_contents("https://blablacariw.herokuapp.com/users/" . $_SESSION['usuario']->_id);
-            $nombre_conductor = json_decode($data)->data->usuario[0]->nombre;
+            $email_conductor = json_decode($data)->data->usuario[0]->email;
 
         ?>
             <tr>
-                <td><?php echo $nombre_conductor; ?></td>
+                <td><?php echo $email_conductor; ?></td>
                 <td><?php echo gmdate("d-m-Y", $viaje->fecha_salida); ?></td>
                 <td><?php echo gmdate("H:i", $viaje->hora_salida); ?></td>
                 <td><?php echo $viaje->lugar_salida; ?></td>
