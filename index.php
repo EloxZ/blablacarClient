@@ -50,9 +50,8 @@ if (isset($_SESSION['viajes_encontrados']) && !empty($_SESSION['viajes_encontrad
         <?php
         foreach ($viajes as $viaje) {
             // Me traigo el nombre del conductor
-            $data = file_get_contents("https://blablacariw.herokuapp.com/users/" . $_SESSION['usuario']->_id);
-            $email_conductor = json_decode($data)->data->usuario[0]->email;
-            var_dump($data);
+            $data = file_get_contents("https://blablacariw.herokuapp.com/users/" . $viaje->id_conductor);
+            $nombre_conductor = json_decode($data)->data->usuario[0]->nombre;
         ?>
             <tr>
                 <td><?php echo $email_conductor; ?></td>
