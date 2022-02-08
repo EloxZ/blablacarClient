@@ -17,7 +17,7 @@
             <?php 
                 foreach ($data->data->usuarios as $usuario){ ?>                
                     <tr>
-                        <td><?php echo $usuario->nombre; ?></td>
+                        <td><?php echo $usuario->email; ?></td>
                         <form action="ver_conversacion.php" method="GET">
                             <input type="hidden" value="<?php echo $usuario->_id?>" name="id_ajeno">
                             <input type="hidden" value="<?php echo $_GET['id']?>" name="id_local">
@@ -31,7 +31,7 @@
     <form action="crear_conversacion.php" method="POST">
         <select id="select" name="select">
                 <?php foreach ($data->data->notusuarios as $notusuario){ ?>
-                    <option value="<?php echo $notusuario->_id?>"><?php echo $notusuario->nombre ?></option>
+                    <option value="<?php echo $notusuario->_id?>"><?php echo $notusuario->email ?></option>
                 <?php } ?>
         </select>
         
