@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_SESSION['login'])) {
+if (isset($_SESSION['usuario']) && isset($_SESSION['token'])) {
     $user = (array) $_SESSION['usuario'];
     $resViajes = file_get_contents("https://blablacariw.herokuapp.com/travels?driver=" . $user['_id']);
     $dataViajes = json_decode($resViajes);
@@ -83,7 +83,9 @@ if (isset($_SESSION['login'])) {
             </tr>
         <?php } ?>
     </table>
-<?php } else { ?> <h3 style="margin-top:40px; margin-left:10px">No tienes ningún viaje reservado.</h3> <?php } ?>
+<?php } else { ?> <h3 style="margin-top:40px; margin-left:10px">No tienes ningún viaje reservado.</h3> <?php }
+var_dump($user);
+?>
 
 <!--- TODO: Boton a conversación --->
 <form action="./servicios/mensajeria/lista_conversaciones.php" method="GET">

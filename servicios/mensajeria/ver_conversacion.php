@@ -41,7 +41,7 @@
 
 <head><link rel="stylesheet" href="../css/styles.css"></head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<h1 align="center">Conversación con <?php echo $dataUser->data->usuario[0]->nombre." ".$dataUser->data->usuario[0]->apellido;?></h1>
+<h1 align="center">Conversación con <?php echo $dataUser->data->usuario[0]->email;?></h1>
 
 <table style="width:60%" align="center">
     
