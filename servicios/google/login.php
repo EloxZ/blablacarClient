@@ -4,7 +4,7 @@ session_start();
 
 $clienteID = '355043429392-p0keh6com6lldp10dkdificgl44f2unc.apps.googleusercontent.com';
 $clientSecret = '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';
-$redirectUrl = 'http://blablacariw.heroku.com/servicios/google/login.php';
+$redirectUrl = 'http://blablacarclient.heroku.com/servicios/google/login.php';
 
 // Nuevo cliente request a Google
 $client = new Google_Client();
