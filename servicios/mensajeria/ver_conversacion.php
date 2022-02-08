@@ -35,7 +35,7 @@
         var_dump($string);
         $res = file_get_contents("https://blablacariw.herokuapp.com/conversations/messages?id1=".$_GET['id_local']."&id2=".$_GET['id_ajeno']);
         $data = json_decode($res);
-        $resUser = file_get_contents("https://blablacariw.herokuapp.com/users/edit/".$_GET['id_ajeno']);
+        $resUser = file_get_contents("https://blablacariw.herokuapp.com/users/".$_GET['id_ajeno']);
         $dataUser = json_decode($resUser);
         var_dump($dataUser);
     }
