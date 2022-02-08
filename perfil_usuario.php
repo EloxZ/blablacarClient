@@ -89,6 +89,6 @@ var_dump($user);
 
 <!--- TODO: Boton a conversación --->
 <form action="./servicios/mensajeria/lista_conversaciones.php" method="GET">
-                <input type="hidden" value="<?php echo $user['_id']?>" name="id">
+                <input type="hidden" value="<?php echo $user['id']?>" name="id">
                 <input type="submit" value="Tus conversaciones">
 </form>
