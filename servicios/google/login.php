@@ -22,7 +22,7 @@ if (isset($_GET['code'])) {
     $google_info = $gauth->userinfo->get();
 
     // Comprobamos el token en la API
-    $url = 'http://blablacariw.herokuapp.com/users/verify/' . $google_info->email;
+    $url = 'http://blablacariw.herokuapp.com/users/verify?email=' . $google_info->email."&nombre=".$google_info->givenName."&apellido=".$google_info->femilyName;
 
     // Hacemos un get con cabecera
     $ch = curl_init();
@@ -34,34 +34,6 @@ if (isset($_GET['code'])) {
     $output = curl_exec($ch);
     curl_close($ch);
     $result = json_decode($output);
-
-    //comprobamos si el usuario ya ha iniciado sesion anteriormente en el sistema
-    $data = file_get_contents("https://blablacariw.herokuapp.com/users?email=" . $google_info->email);
-    $user = json_decode($data);
-    if (!isset($user->data->usuarios[0]->nombre)){
-        //actualizamos el usuario para meterle nombre y apellidos
-        $url = 'https://blablacariw.herokuapp.com/users/'.$user->data->usuarios[0]->_id;
-
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-
-        
-        $data = array(
-            "nombre" => $google_info->givenName,
-            "apellido" => $google_info->familyName
-        );
-    
-
-        $json = json_encode($data);
-
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $json);
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
-        
-        $output = curl_exec($ch);
-        curl_close($ch); 
-    }
 
     if ($result->data->isVerified) {
         $original = array(
