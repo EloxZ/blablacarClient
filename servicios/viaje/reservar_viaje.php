@@ -3,7 +3,7 @@
     $res = file_get_contents("https://blablacariw.herokuapp.com/travels/" . $_POST['id']);
     $data = json_decode($res);
 
-    array_push($data->data->viaje[0]->id_pasajeros, $_POST['id']);
+    array_push($data->data->viaje[0]->id_pasajeros, $_SESSION['usuario']->_id);
 
 
     $url = "https://blablacariw.herokuapp.com/travels/" . $_POST['id'];
