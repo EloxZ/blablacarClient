@@ -75,9 +75,14 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['token'])) {
             <th>Lugar Salida</th>
             <th>Lugar Llegada</th>
         </tr>
-        <?php foreach ($dataViajesRes->data->viajes as $viaje) { ?>
+        <?php foreach ($dataViajesRes->data->viajes as $viaje) { 
+            
+            // Me traigo el nombre del conductor
+            $data = file_get_contents("https://blablacariw.herokuapp.com/users/" . $viaje->id_conductor);
+            $nombre_conductor = json_decode($data)->data->usuarios[0]->nombre;
+            ?>
             <tr>
-                <td><?php echo $viaje->nombre_conductor; ?></td>
+                <td><?php echo $nombre_conductor; ?></td>
                 <td><?php echo gmdate("d-m-Y", $viaje->fecha_salida); ?></td>
                 <td><?php echo gmdate("H:i", $viaje->hora_salida); ?></td>
                 <td><?php echo $viaje->lugar_salida; ?></td>

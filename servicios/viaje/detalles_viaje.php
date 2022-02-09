@@ -47,7 +47,10 @@
         <?php }
     ?>
 
-
+<form action="servicios/viaje/reservar_viaje.php" method="POST">
+    <input type="hidden" value="<?php echo $viaje->_id ?>" name="id">
+    <td><input type="submit" value="Reservar"></td>
+</form>
 
 
 
