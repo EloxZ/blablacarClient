@@ -26,11 +26,11 @@
     echo "<img src='".$usuario->foto."' style='width:30px;height:30px;'?></td>";
 ?>
 <h3>Fecha: <?php echo gmdate("d-m-Y", $viaje->fecha_salida);?></h3>
-<h3>Hora de salida: <?php gmdate("H:i", $viaje->hora_salida); ?></h3>
-<h3>Precio: <?php echo $viaje->price; echo $viaje->currency?>€</h3>
+<h3>Hora de salida: <?php gmdate("H:m", $viaje->hora_salida); ?></h3>
+<h3>Precio: <?php echo $viaje->price; echo $viaje->currency?></h3>
 
 
-<form action="servicios/viaje/reservar_viaje.php" method="POST">
+<form action="reservar_viaje.php" method="POST">
     <input type="hidden" value="<?php echo $viaje->_id ?>" name="id">
     <td><input type="submit" value="Reservar"></td>
 </form>
