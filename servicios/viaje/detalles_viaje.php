@@ -2,7 +2,8 @@
     $resTravel = file_get_contents("https://blablacariw.herokuapp.com/travels/".$_GET['id']);
     $dataTravel = json_decode($resTravel);
     $viaje = $dataTravel->data->viajes[0];
-
+    var_dump($viaje);
+    
     $resConductor = file_get_contents("https://blablacariw.herokuapp.com/users/".$viaje->id_conductor);
     $dataConductor = json_decode($resConductor);
     $conductor = $dataConductor->data->usuarios[0];
@@ -26,7 +27,7 @@
     echo "<img src='".$usuario->foto."' style='width:30px;height:30px;'?></td>";
 ?>
 <h3>Fecha: <?php echo gmdate("d-m-Y", $viaje->fecha_salida);?></h3>
-<h3>Hora de salida: <?php gmdate("H:m", $viaje->hora_salida); ?></h3>
+<h3>Hora de salida: <?php gmdate("H:i", $viaje->hora_salida); ?></h3>
 <h3>Precio: <?php echo $viaje->price; echo $viaje->currency?></h3>
 
 
