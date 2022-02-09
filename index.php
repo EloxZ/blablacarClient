@@ -51,7 +51,6 @@ if (isset($_SESSION['viajes_encontrados']) && !empty($_SESSION['viajes_encontrad
         foreach ($viajes as $viaje) {
             // Me traigo el nombre del conductor
             $data = file_get_contents("https://blablacariw.herokuapp.com/users/" . $viaje->id_conductor);
-            var_dump($viaje->id_conductor);
             $nombre_conductor = json_decode($data)->data->usuario[0]->nombre;
         ?>
             <tr>
