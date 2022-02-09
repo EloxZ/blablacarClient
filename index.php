@@ -60,7 +60,10 @@ if (isset($_SESSION['viajes_encontrados']) && !empty($_SESSION['viajes_encontrad
                 <td><?php echo $viaje->lugar_salida; ?></td>
                 <td><?php echo $viaje->lugar_llegada; ?></td>
                 <td><?php echo $viaje->price; ?>€</td>
-                <td><a class="btn" href='./servicios/viaje/detalles_viaje.php'>Detalles</a></td>
+                <form action="servicios/viaje/detalles_viaje.php" method="GET">
+                    <input type="hidden" value="<?php echo $viaje->_id ?>" name="id">
+                    <td><input type="submit" value="Detalles"></td>
+                </form>
             </tr>
 
         <?php
