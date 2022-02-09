@@ -2,7 +2,7 @@
     $resTravel = file_get_contents("https://blablacariw.herokuapp.com/travels/".$_GET['id']);
     $dataTravel = json_decode($resTravel);
     $viaje = $dataTravel->data->viajes[0];
-    var_dump($viaje);
+    var_dump($dataTravel);
     
     $resConductor = file_get_contents("https://blablacariw.herokuapp.com/users/".$viaje->id_conductor);
     $dataConductor = json_decode($resConductor);
