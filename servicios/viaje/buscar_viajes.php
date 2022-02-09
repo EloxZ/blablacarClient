@@ -2,8 +2,10 @@
 
 session_start();
 
-$origen = trim($_GET['origen']);
-$destino = trim($_GET['destino']);
+$origenRaw = trim($_GET['origen']);
+$origen = preg_replace('/\s+/', '+', $origenRaw);
+$destinoRaw = trim($_GET['destino']);
+$destino = preg_replace('/\s+/', '+', $destinoRaw);
 $fecha = strtotime($_GET['fecha']);
 
 $res = file_get_contents("http://blablacariw.herokuapp.com/travels?origen=" . $origen . "&destino=" . $destino);
