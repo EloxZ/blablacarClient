@@ -75,7 +75,7 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['token'])) {
             <th>Lugar Salida</th>
             <th>Lugar Llegada</th>
         </tr>
-        <?php foreach ($dataViajesres->data->viajes as $viaje) { ?>
+        <?php foreach ($dataViajesRes->data->viajes as $viaje) { ?>
             <tr>
                 <td><?php echo $viaje->nombre_conductor; ?></td>
                 <td><?php echo gmdate("d-m-Y", $viaje->fecha_salida); ?></td>
