@@ -14,7 +14,6 @@
 
     error_reporting(E_ERROR | E_PARSE);
 
-    include '../paypal/config.php'
 ?>
 
 <h1>Detalles del viaje</h1>
@@ -52,6 +51,3 @@
             </form>
         <?php }
     ?>
-
-
-<?php include '../paypal/paypalCheckout.php'?>
