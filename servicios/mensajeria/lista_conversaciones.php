@@ -8,7 +8,7 @@
 
 
 <h1>Conversaciones</h1>
-
+<section class="container">
 <table>
         <tr>
             <th>Usuario</th>
@@ -40,3 +40,4 @@
         <input type="hidden" value="<?php echo $_GET['id']?>" name="id_local">
         <input type="submit" value="Nueva Conversacion">
     </form>
+    </section>
