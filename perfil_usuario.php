@@ -4,11 +4,11 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['token'])) {
     $user = (array) $_SESSION['usuario'];
     $resViajes = file_get_contents("https://blablacariw.herokuapp.com/travels?driver=" . $user['_id']);
     $dataViajes = json_decode($resViajes);
-    var_dump($dataViajes);
+    //var_dump($dataViajes);
 
     $resViajesRes = file_get_contents("https://blablacariw.herokuapp.com/travels?passenger=" . $user['_id']);
     $dataViajesRes = json_decode($resViajesRes);
-    var_dump($dataViajesRes);
+    //var_dump($dataViajesRes);
 
     include "./includes/header.php";
 } else {

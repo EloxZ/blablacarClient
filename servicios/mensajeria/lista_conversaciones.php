@@ -6,9 +6,8 @@
     include "../../includes/header.php";
 ?>
 
-
-<h1>Conversaciones</h1>
 <section class="container">
+<h1>Conversaciones</h1>
 <table>
         <tr>
             <th>Usuario</th>
