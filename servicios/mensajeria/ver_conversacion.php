@@ -39,7 +39,7 @@
         $dataUser = json_decode($resUser);
         var_dump($dataUser);
     }
-
+    include "../../includes/header.php";
 ?>
 
 <head><link rel="stylesheet" href="../css/styles.css"></head>
