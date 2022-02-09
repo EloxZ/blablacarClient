@@ -31,8 +31,9 @@
     <form action="crear_conversacion.php" method="POST">
         <select id="select" name="select">
                 <?php foreach ($data->data->notusuarios as $notusuario){ ?>
+                    <?php if($notusuario->_id != $_GET['id']){?>
                     <option value="<?php echo $notusuario->_id?>"><?php echo $notusuario->email ?></option>
-                <?php } ?>
+                <?php }} ?>
         </select>
         
         
