@@ -53,9 +53,9 @@
                         <?php
                             if($mensaje->from == $_GET['id_ajeno']){
                             ?>
-                            <td align="left"><?php echo $mensaje->texto ?></td>
+                            <td text-align="left"><?php echo $mensaje->texto ?></td>
                             <?php } else { ?>
-                            <td align="right"><?php echo $mensaje->texto ?></td>    
+                            <td text-align="right"><?php echo $mensaje->texto ?></td>    
                             <?php } ?>
                     </tr>
                 
