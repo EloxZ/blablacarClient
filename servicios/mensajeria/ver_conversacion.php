@@ -55,7 +55,7 @@
                             ?>
                             <td align="left"><?php echo $mensaje->texto ?></td>
                             <?php } else { ?>
-                            <td align="right"><?php echo $mensaje->texto ?></td>    
+                            <td align="left"><?php echo $mensaje->texto ?></td>    
                             <?php } ?>
                     </tr>
                 
