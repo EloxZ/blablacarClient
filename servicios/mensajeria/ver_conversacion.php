@@ -1,7 +1,7 @@
 <?php
     session_start();
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
-        $url = 'https://blablacariw.herokuapp.com/messages/add';
+        $url = 'https://blablacariw.herokuapp.com/messages';
         
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
