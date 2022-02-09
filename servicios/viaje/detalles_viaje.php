@@ -25,8 +25,8 @@
     else
     echo "<img src='".$usuario->foto."' style='width:30px;height:30px;'?></td>";
 ?>
-<h3>Fecha: <?php echo $viaje->fecha_salida?></h3>
-<h3>Hora de salida: <?php echo $viaje->hora_salida?></h3>
+<h3>Fecha: <?php echo gmdate("d-m-Y", $viaje->fecha_salida);?></h3>
+<h3>Hora de salida: <?php gmdate("H:i", $viaje->hora_salida); ?></h3>
 <h3>Precio: <?php echo $viaje->price; echo $viaje->currency?></h3>
 <h3>Contactar con el conductor: </h3>
 
