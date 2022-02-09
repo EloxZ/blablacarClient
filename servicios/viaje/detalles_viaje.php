@@ -1,11 +1,11 @@
 <?php 
     $resTravel = file_get_contents("https://blablacariw.herokuapp.com/travels/".$_GET['id']);
     $dataTravel = json_decode($resTravel);
-    $viaje = $dataTravel->data->viaje[0];
+    $viaje = $dataTravel->data->viajes[0];
 
     $resConductor = file_get_contents("https://blablacariw.herokuapp.com/users/".$viaje->id_conductor);
     $dataConductor = json_decode($resConductor);
-    $conductor = $dataConductor->data->usuario[0];
+    $conductor = $dataConductor->data->usuarios[0];
 
     $resConversaciones = file_get_contents("https://blablacariw.herokuapp.com/conversaciones/".$_GET['id_local']);
     $dataConversaciones = json_decode($resConversaciones);
