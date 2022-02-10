@@ -14,8 +14,7 @@ curl_setopt($ch, CURLOPT_POST, true);
 $data = array(
     "nombre" => $nombre,
     "apellido" => $apellido,            
-    "email" => $email,
-    "password" => ''
+    "email" => $email
 );
 
 $json = json_encode($data);
