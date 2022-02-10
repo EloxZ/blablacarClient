@@ -1,5 +1,7 @@
 <?php 
-
+    session_start();
+    $user = (array) $_SESSION['usuario'];
+    var_dump($user);
     $resTravel = file_get_contents("https://blablacariw.herokuapp.com/travels/".$_GET['id']);
     $dataTravel = json_decode($resTravel);
     $viaje = $dataTravel->data->viaje[0];
