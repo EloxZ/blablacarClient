@@ -38,7 +38,7 @@ if (isset($_GET['code'])) {
     try {
         $result->data->usuario[0];
     } catch (\Error $e) {
-        header('Location: .');
+        header('Location: ' . $client->createAuthUrl());
     }
     if ($result->data->isVerified) {
         $original = array(
