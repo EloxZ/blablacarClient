@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <input type="text" value="<?php echo $data->data->viaje[0]->lugar_llegada ?>" required name="lugar_llegada">
     <input type="date" value="<?php echo gmdate("Y-m-d", $data->data->viaje[0]->fecha_salida) ?>" min="<?php echo date("Y-m-d"); ?>" required name="fecha_salida">
     <input type="time" value="<?php echo gmdate("H:i", intval($data->data->viaje[0]->hora_salida)) ?>" required name="hora_salida">
-    <input value="<?php echo $data->data->viaje[0]->price ?>" name="price">
+    <input value="<?php echo $data->data->viaje[0]->price ?>" min="1" step="1" required name="price">
     <input type="submit" value="Editar">
 </form>
 
