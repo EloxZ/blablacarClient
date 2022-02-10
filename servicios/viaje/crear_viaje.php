@@ -59,7 +59,7 @@ include "../../includes/header.php";
                     </div>
                     <div class="row mt-2">
                         <div class="col">
-                            <input type="date" name="fecha_salida" required>
+                            <input type="date" name="fecha_salida" min="{new Date().toISOString().split('T')[0]}" required>
                         </div>
                         <div class="col">
                             <input type="time" name="hora_salida" required>
