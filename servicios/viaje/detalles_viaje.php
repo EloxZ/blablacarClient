@@ -8,7 +8,7 @@
 
     $resConductor = file_get_contents("https://blablacariw.herokuapp.com/users/".$viaje->id_conductor);
     $dataConductor = json_decode($resConductor);
-    $conductor = $dataConductor->data->usuarios[0];
+    $conductor = $dataConductor->data;
 
     $resConversaciones = file_get_contents("https://blablacariw.herokuapp.com/conversaciones/".$_GET['id_local']);
     $dataConversaciones = json_decode($resConversaciones);
