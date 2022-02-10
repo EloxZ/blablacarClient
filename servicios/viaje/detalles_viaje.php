@@ -17,7 +17,7 @@
     $dataConversaciones = json_decode($resConversaciones);
 
     //var_dump($dataConductor);
-    var_dump($dataConversaciones->data);
+    //var_dump($dataConversaciones->data);
 
     include "../../includes/header.php";
     error_reporting(E_ERROR | E_PARSE);
@@ -48,7 +48,8 @@
 
 <h3>Contactar con el conductor: </h3>
 <?php
-    var_dump(in_array($conductor, $dataConversaciones->data->usuarios));
+    //var_dump(in_array($conductor, $dataConversaciones->data->usuarios));
+    if($conductor->_id != $user['_id']){
     if (in_array($conductor, $dataConversaciones->data->usuarios)) { ?>
             <form action="../mensajeria/ver_conversacion.php" method="GET">
                 <input type="hidden" value="<?php echo $conductor->_id?>" name="id_ajeno">
@@ -62,5 +63,5 @@
                 <input type="hidden" value="<?php echo $user['_id']?>" name="id_local">
                 <input type="submit" value="Empezar conversación con el conductor">
             </form>
-        <?php }
+        <?php }}
     ?>
