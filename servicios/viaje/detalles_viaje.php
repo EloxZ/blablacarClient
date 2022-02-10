@@ -31,11 +31,15 @@
 <h3>Hora de salida: <?php gmdate("H:i", $viaje->hora_salida); ?></h3>
 <h3>Precio: <?php echo $viaje->price; echo $viaje->currency?></h3>
 
-
+<?php
+    if($viaje->id_conductor != $conductor->_id){
+?>
 <form action="reservar_viaje.php" method="POST">
     <input type="hidden" value="<?php echo $viaje->_id ?>" name="id">
     <td><input type="submit" value="Reservar"></td>
 </form>
+
+<?php } ?>
 
 <h3>Contactar con el conductor: </h3>
 <?php
