@@ -37,7 +37,7 @@ if (isset($_GET['code'])) {
     
     try {
         $result->data->usuario[0];
-    } catch (Exception $e) {
+    } catch (\Error $e) {
         header('Location: .');
     }
     if ($result->data->isVerified) {
