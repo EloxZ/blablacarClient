@@ -10,7 +10,7 @@
     $resConversaciones = file_get_contents("https://blablacariw.herokuapp.com/conversaciones/".$_GET['id_local']);
     $dataConversaciones = json_decode($resConversaciones);
 
-    
+    var_dump($dataConductor);
 
     error_reporting(E_ERROR | E_PARSE);
 
