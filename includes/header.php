@@ -19,7 +19,7 @@ else $__DIR_NAME__ =  'http://localhost/'; ?>
     <nav>
         <div class="container">
             <div class="contenido-header">
-                <img src="#" alt="Imagen logo">
+                <img src="/img/logo.png" alt="Imagen logo">
                 <div class="d-flex justify-content-center py-3">
                     <ul class="nav nav-pills">
                         <li class="nav-item">
