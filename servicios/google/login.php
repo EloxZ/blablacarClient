@@ -34,15 +34,18 @@ if (isset($_GET['code'])) {
     $output = curl_exec($ch);
     curl_close($ch);
     $result = json_decode($output);
-    
+    $id;
+
     try {
-        $result->data->usuario[0];
-    } catch (\Error $e) {
+        $data = file_get_contents("https://blablacariw.herokuapp.com/users/?email=" . $google_info->email);
+        $id = json_decode($data)->data->usuario[0]->_id;
+    } catch (Throwable $t) {
         header('Location: ' . $client->createAuthUrl());
     }
+    
     if ($result->data->isVerified) {
         $original = array(
-            "_id" => $result->data->usuario[0]->_id,
+            "_id" => $id,
             "nombre" => $google_info->givenName,
             "apellido" => $google_info->familyName,
             "email" => $google_info->email
