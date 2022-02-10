@@ -1,4 +1,8 @@
 <?php 
+    //session_start();
+    $user = (array) $_SESSION['usuario'];
+    var_dump($user);
+
     $resTravel = file_get_contents("https://blablacariw.herokuapp.com/travels/".$_GET['id']);
     $dataTravel = json_decode($resTravel);
     $viaje = $dataTravel->data->viaje[0];
@@ -17,6 +21,7 @@
 
     error_reporting(E_ERROR | E_PARSE);
 
+    include "../../includes/header.php";
 ?>
 
 <h1>Detalles del viaje</h1>
@@ -32,7 +37,7 @@
 <h3>Precio: <?php echo $viaje->price; echo $viaje->currency?></h3>
 
 <?php
-    if($viaje->id_conductor != $conductor->_id){
+    if($viaje->id_conductor != $user['_id']){
 ?>
 <form action="reservar_viaje.php" method="POST">
     <input type="hidden" value="<?php echo $viaje->_id ?>" name="id">
