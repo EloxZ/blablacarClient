@@ -17,7 +17,7 @@
     $dataConversaciones = json_decode($resConversaciones);
 
     //var_dump($dataConductor);
-    var_dump($dataConversaciones->data->usuarios);
+    var_dump($dataConversaciones->data);
 
     include "../../includes/header.php";
     error_reporting(E_ERROR | E_PARSE);
