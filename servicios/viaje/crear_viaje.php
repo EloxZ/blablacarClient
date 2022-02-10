@@ -67,7 +67,7 @@ include "../../includes/header.php";
                     </div>
                     <div class="login-input">
                         <label for="price">Precio (€)</label>
-                        <input type="number" name="price" required>
+                        <input type="number" name="price" min="1" step="1" required>
                     </div>
                     <input type="hidden" value=<?php echo $_SESSION['usuario']->_id ?> name="id_conductor">
                     <div class="centro">
