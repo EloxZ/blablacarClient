@@ -1,5 +1,5 @@
 <?php 
-    //session_start();
+    session_start();
     $user = (array) $_SESSION['usuario'];
     var_dump($user);
 
