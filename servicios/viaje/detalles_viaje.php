@@ -46,7 +46,6 @@
 
 <?php } ?>
 
-<h3>Contactar con el conductor: </h3>
 <?php
     //var_dump(in_array($conductor, $dataConversaciones->data->usuarios));
     if($conductor->_id != $user['_id']){
@@ -63,5 +62,5 @@
                 <input type="hidden" value="<?php echo $user['_id']?>" name="id_local">
                 <input type="submit" value="Empezar conversación con el conductor">
             </form>
-        <?php }}
+        <?php }} else { ?> <h3>Contactar con el conductor: </h3> <?php }
     ?>
