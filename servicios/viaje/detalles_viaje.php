@@ -2,6 +2,7 @@
     session_start();
     $user = (array) $_SESSION['usuario'];
     var_dump($user);
+    var_dump($_GET['id_local']);
     $resTravel = file_get_contents("https://blablacariw.herokuapp.com/travels/".$_GET['id']);
     $dataTravel = json_decode($resTravel);
     $viaje = $dataTravel->data->viaje[0];
@@ -26,7 +27,7 @@
 
 <h1>Detalles del viaje</h1>
 <h3>Trayecto: <?php echo $viaje->lugar_salida?> - <?php echo $viaje->lugar_llegada?></h3>
-<h3>Conductor: <?php echo $conductor->nombre?> <?php echo $conductor->apellidos?> (<?php echo $conductor->email?>)</h3>
+<h3>Conductor: <?php echo $conductor->nombre?> <?php echo $conductor->apellido?> (<?php echo $conductor->email?>)</h3>
 <?php if ($dataConductor->data->foto==null)
     echo "<img src='https://acortar.link/mZkcJS' style='width:30px;height:30px;'?></td>";
     else
