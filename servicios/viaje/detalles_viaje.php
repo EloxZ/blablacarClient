@@ -2,7 +2,6 @@
     session_start();
     $user = (array) $_SESSION['usuario'];
     var_dump($user);
-    var_dump($_GET['id_local']);
     $resTravel = file_get_contents("https://blablacariw.herokuapp.com/travels/".$_GET['id']);
     $dataTravel = json_decode($resTravel);
     $viaje = $dataTravel->data->viaje[0];
@@ -14,7 +13,7 @@
     $dataConductor = json_decode($resConductor);
     $conductor = $dataConductor->data->usuario[0];
 
-    $resConversaciones = file_get_contents("https://blablacariw.herokuapp.com/conversations/".$_GET['id_local']);
+    $resConversaciones = file_get_contents("https://blablacariw.herokuapp.com/conversations/".$user['_id']);
     $dataConversaciones = json_decode($resConversaciones);
 
     //var_dump($dataConductor);
@@ -53,14 +52,14 @@
     if (in_array($conductor, $dataConversaciones->data->usuarios)) { ?>
             <form action="../mensajeria/ver_conversacion.php" method="GET">
                 <input type="hidden" value="<?php echo $conductor->_id?>" name="id_ajeno">
-                <input type="hidden" value="<?php echo $_GET['id_local']?>" name="id_local">
+                <input type="hidden" value="<?php echo $user['_id']?>" name="id_local">
                 <input type="submit" value="Ver conversación con el conductor">
             </form>
 
         <?php } else { ?>
             <form action="../mensajeria/crear_conversacion.php" method="POST">
                 <input type="hidden" value="<?php echo $conductor->_id?>" name="select">
-                <input type="hidden" value="<?php echo $_GET['id_local']?>" name="id_local">
+                <input type="hidden" value="<?php echo $user['_id']?>" name="id_local">
                 <input type="submit" value="Empezar conversación con el conductor">
             </form>
         <?php }
