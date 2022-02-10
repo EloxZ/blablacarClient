@@ -6,6 +6,9 @@ if (isset($_SESSION['server_msg'])) {
     unset($_SESSION['server_msg']);
 }
 
+date_default_timezone_set('Europe/Madrid');
+
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $url = 'https://blablacariw.herokuapp.com/travels';
 
