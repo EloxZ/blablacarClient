@@ -62,7 +62,7 @@ include "../../includes/header.php";
                             <input type="date" name="fecha_salida" min="<?php echo date("Y-m-d"); ?>" required>
                         </div>
                         <div class="col">
-                            <input type="time" name="hora_salida" required>
+                            <input type="time" name="hora_salida" min="<?php echo date("H:i"); ?>" required>
                         </div>
                     </div>
                     <div class="login-input">
