@@ -35,7 +35,11 @@ if (isset($_GET['code'])) {
     curl_close($ch);
     $result = json_decode($output);
     
+
     if ($result->data->isVerified) {
+        if (!isset($result->data->usuario[0])) {
+            header('Location: .');
+        }
         $original = array(
             "_id" => $result->data->usuario[0]->_id,
             "nombre" => $google_info->givenName,
