@@ -8,6 +8,7 @@ if (isset($_SESSION['server_msg'])) {
 
 date_default_timezone_set('Europe/Madrid');
 
+$user = (array) $_SESSION['usuario'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $url = 'https://blablacariw.herokuapp.com/travels';
@@ -65,7 +66,7 @@ include "../../includes/header.php";
                             <input type="date" name="fecha_salida" min="<?php echo date("Y-m-d"); ?>" required>
                         </div>
                         <div class="col">
-                            <input type="time" name="hora_salida" min="<?php echo date("H:i"); ?>" required>
+                            <input type="time" name="hora_salida" required>
                         </div>
                     </div>
                     <div class="login-input">
