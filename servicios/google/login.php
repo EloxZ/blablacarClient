@@ -53,6 +53,10 @@ if (isset($_GET['code'])) {
         $_SESSION['token'] = $token;
         $_SESSION['usuario'] = $usuario;
 
+        if ($google_info->email === "pruebaparaingweb@gmail.com" || $google_info->email === "0619838354@uma.es") {
+            $_SESSION['admin'] = true;
+        }
+
         // Redirijo a index
         header('Location: /index.php');
     } else {
