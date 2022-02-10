@@ -4,6 +4,7 @@
     $viaje = $dataTravel->data->viaje[0];
     
     var_dump($viaje);
+    var_dump($viaje->id_conductor);
 
     $resConductor = file_get_contents("https://blablacariw.herokuapp.com/users/".$dataTravel->data->viajes[0]->id_conductor);
     $dataConductor = json_decode($resConductor);
