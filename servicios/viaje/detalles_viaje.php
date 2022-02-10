@@ -18,7 +18,6 @@
 
     error_reporting(E_ERROR | E_PARSE);
 
-    include "../../includes/header.php";
 ?>
 
 <h1>Detalles del viaje</h1>
