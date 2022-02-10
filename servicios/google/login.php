@@ -43,7 +43,7 @@ if (isset($_GET['code'])) {
             "email" => $google_info->email
         );
 
-        $usuario = array();
+        $usuario = new stdClass();
 
         foreach ($original as $key => $value) {
             $usuario->$key = $value;
