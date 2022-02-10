@@ -36,8 +36,9 @@ if (isset($_GET['code'])) {
     $result = json_decode($output);
 
     if ($result->data->isVerified) {
+        $usuarioArray = (array) $result->data->usuario;
         $original = array(
-            "_id" => $result->data->usuario[0]->_id,
+            "_id" => $usuarioArray[0]->_id,
             "nombre" => $google_info->givenName,
             "apellido" => $google_info->familyName,
             "email" => $google_info->email
