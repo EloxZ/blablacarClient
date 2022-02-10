@@ -3,8 +3,8 @@
     $dataTravel = json_decode($resTravel);
     $viaje = $dataTravel->data->viaje[0];
     
-    var_dump($viaje);
-    var_dump($viaje->id_conductor);
+    //var_dump($viaje);
+    //var_dump($viaje->id_conductor);
 
     $resConductor = file_get_contents("https://blablacariw.herokuapp.com/users/".$viaje->id_conductor);
     $dataConductor = json_decode($resConductor);
@@ -13,7 +13,7 @@
     $resConversaciones = file_get_contents("https://blablacariw.herokuapp.com/conversaciones/".$_GET['id_local']);
     $dataConversaciones = json_decode($resConversaciones);
 
-    var_dump($dataConductor);
+    //var_dump($dataConductor);
 
     error_reporting(E_ERROR | E_PARSE);
 
