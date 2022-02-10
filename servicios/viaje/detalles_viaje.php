@@ -18,6 +18,7 @@
 
     //var_dump($dataConductor);
 
+    include "../../includes/header.php";
     error_reporting(E_ERROR | E_PARSE);
 
 ?>
