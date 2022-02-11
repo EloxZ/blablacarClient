@@ -27,7 +27,7 @@ include './includes/header.php';
 
             <tr>
                 <td><?php if (!isset($usuario->foto))
-                        echo "<img src='https://acortar.link/mZkcJS' style='width:30px;height:30px;'?></td>";
+                        echo "<img src='https://e7.pngegg.com/pngimages/759/54/png-clipart-gray-vehicle-art-volkswagen-beetle-car-drawing-front-compact-car-volkswagen.png' style='width:30px;height:30px;'?></td>";
                     else
                         echo "<img src='" . $usuario->foto . "' style='width:30px;height:30px;'?></td>"; ?>
                 <td><?php echo $usuario->nombre; ?></td>

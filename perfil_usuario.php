@@ -10,6 +10,9 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['token'])) {
     $dataViajesRes = json_decode($resViajesRes);
     //var_dump($dataViajesRes);
 
+    $resUser = file_get_contents("https://blablacariw.herokuapp.com/users/" . $user['_id']);
+    $dataUser = json_decode($resUser)->data->usuario[0];
+
     include "./includes/header.php";
 } else {
     header('Location: /login.php');
@@ -30,7 +33,14 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['token'])) {
 <p style="margin-left:20px">Email: <?php echo $user['email']; ?>
 <p>
 
-    <!--- TODO: Foto de perfil --->
+    <!--- Foto de perfil --->
+<h3 style="margin-top:40px; margin-left:10px">Mi coche</h3>
+<?php if (isset($dataUser->foto) && ($dataUser->foto !== "")) {
+    echo "<img src='" . $dataUser->foto . "' style='margin-left:20px' width='500' height='500'>";
+} else {
+    echo "<p style='margin-left:20px'>Añade la foto de tu coche para que los demás usuarios te puedan reconocer.</p>";
+} ?>
+
 
     <!--- Tabla de viajes como conductor --->
     <?php if (isset($dataViajes) && sizeof($dataViajes->data->viajes) > 0) { ?>
