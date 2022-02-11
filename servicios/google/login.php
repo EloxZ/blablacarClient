@@ -38,7 +38,7 @@ if (isset($_GET['code'])) {
 
     try {
         $data = file_get_contents("https://blablacariw.herokuapp.com/users/?email=" . $google_info->email);
-        $id = json_decode($data)->data->usuario[0]->_id;
+        $id = json_decode($data)->data->usuarios[0]->_id;
     } catch (Throwable $t) {
         header('Location: ' . $client->createAuthUrl());
     }
