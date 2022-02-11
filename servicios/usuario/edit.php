@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if (!isset($_SESSION['token'])) {
+    if (!isset($_SESSION['usuario'])) {
         header('Location: /login.php');
     } else if (!isset($_SESSION['admin'])) {
         header('Location: /index.php');
