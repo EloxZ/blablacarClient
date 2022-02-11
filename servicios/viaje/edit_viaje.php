@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $result = json_decode($output);
     $_SESSION['server_msg'] = $result->data->msg;
 
-    header('Location: ../../perfil_usuario.php');
+    header('Location: /index.php');
 } else {
     $res = file_get_contents("https://blablacariw.herokuapp.com/travels/" . $_GET['id']);
     $data = json_decode($res);
@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     ?>
 
-    <input type="hidden" value="<?php echo $_SESSION['usuario']->_id ?>" name="id_conductor">
+    <input type="hidden" value="<?php echo $data->data->viaje[0]->id_conductor ?>" name="id_conductor">
     <input type="text" value="<?php echo $data->data->viaje[0]->lugar_salida ?>" required name="lugar_salida">
     <input type="text" value="<?php echo $data->data->viaje[0]->lugar_llegada ?>" required name="lugar_llegada">
     <input type="date" value="<?php echo gmdate("Y-m-d", $data->data->viaje[0]->fecha_salida) ?>" min="<?php echo date("Y-m-d"); ?>" required name="fecha_salida">
