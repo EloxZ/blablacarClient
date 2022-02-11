@@ -41,7 +41,7 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['token'])) {
     echo "<p style='margin-left:20px'>Añade la foto de tu coche para que los demás usuarios te puedan reconocer.</p>";
 } ?>
 
-<div class="box">
+<div class="box" style="margin-top:40px; margin-left:20px">
     <form enctype="multipart/form-data" action="/funciones/enviar_imagen_user.php" method="POST">
         <h3>Subir imagen</h3>
         <input type="file" name="imagen" type="image/jpeg, image/jpg, image/png">

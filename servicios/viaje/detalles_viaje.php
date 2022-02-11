@@ -1,7 +1,7 @@
 <?php 
     session_start();
     $user = (array) $_SESSION['usuario'];
-    var_dump($user);
+
     $resTravel = file_get_contents("https://blablacariw.herokuapp.com/travels/".$_GET['id']);
     $dataTravel = json_decode($resTravel);
     $viaje = $dataTravel->data->viaje[0];
@@ -23,14 +23,14 @@
     error_reporting(E_ERROR | E_PARSE);
 
 ?>
-
+<section class="container">
 <h1>Detalles del viaje</h1>
 <h3>Trayecto: <?php echo $viaje->lugar_salida?> - <?php echo $viaje->lugar_llegada?></h3>
 <h3>Conductor: <?php echo $conductor->nombre?> <?php echo $conductor->apellido?> (<?php echo $conductor->email?>)</h3>
-<?php if ($dataConductor->data->foto==null)
-    echo "<img src='https://acortar.link/mZkcJS' style='width:30px;height:30px;'?></td>";
+<?php if (!isset($conductor->foto) || $conductor->foto === "")
+    echo "<img src='https://e7.pngegg.com/pngimages/759/54/png-clipart-gray-vehicle-art-volkswagen-beetle-car-drawing-front-compact-car-volkswagen.png' style='width:50px;height:50px;'?></td>";
     else
-    echo "<img src='".$usuario->foto."' style='width:30px;height:30px;'?></td>";
+    echo "<img src='".$conductor->foto."' style='width:500px;height:500px;'?></td>";
 ?>
 <h3>Fecha: <?php echo gmdate("d-m-Y", $viaje->fecha_salida);?></h3>
 <h3>Hora de salida: <?php gmdate("H:i", $viaje->hora_salida); ?></h3>
@@ -66,3 +66,4 @@
             </form>
         <?php }}
     ?>
+</section>
