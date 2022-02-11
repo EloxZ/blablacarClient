@@ -41,6 +41,15 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['token'])) {
     echo "<p style='margin-left:20px'>Añade la foto de tu coche para que los demás usuarios te puedan reconocer.</p>";
 } ?>
 
+<div class="box">
+    <form enctype="multipart/form-data" action="/funciones/enviar_imagen_user.php" method="POST">
+        <h3>Subir imagen</h3>
+        <input type="file" name="imagen" type="image/jpeg, image/jpg, image/png">
+        <input value="<?php echo $user['_id']?>" id="id" name="id" type="hidden">
+        <input type="submit" value="Enviar">
+    </form>
+</div>
+
 
     <!--- Tabla de viajes como conductor --->
     <?php if (isset($dataViajes) && sizeof($dataViajes->data->viajes) > 0) { ?>
@@ -79,6 +88,7 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['token'])) {
     <h3 style="margin-top:40px; margin-left:10px">Viajes reservados</h3>
     <table>
         <tr>
+            <th>Coche</th>
             <th>Conductor</th>
             <th>Fecha Salida</th>
             <th>Hora Salida</th>
@@ -90,8 +100,13 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['token'])) {
             // Me traigo el nombre del conductor
             $data = file_get_contents("https://blablacariw.herokuapp.com/users/" . $viaje->id_conductor);
             $nombre_conductor = json_decode($data)->data->usuario[0]->nombre;
+            $foto = json_decode($data)->data->usuario[0]->foto;
+            if (!isset($foto) || $foto === "") {
+                $foto = "https://e7.pngegg.com/pngimages/759/54/png-clipart-gray-vehicle-art-volkswagen-beetle-car-drawing-front-compact-car-volkswagen.png";
+            }
             ?>
             <tr>
+                <td><?php echo "<img src='" . $foto . "' style='margin-left:20px' width='200' height='200'>"; ?></td>
                 <td><?php echo $nombre_conductor; ?></td>
                 <td><?php echo gmdate("d-m-Y", $viaje->fecha_salida); ?></td>
                 <td><?php echo gmdate("H:i", $viaje->hora_salida); ?></td>
@@ -104,7 +119,7 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['token'])) {
 
 ?>
 
-<!--- TODO: Boton a conversación --->
+<!--- Boton a conversación --->
 <form action="./servicios/mensajeria/lista_conversaciones.php" method="GET">
                 <input type="hidden" value="<?php echo $user['_id']?>" name="id">
                 <input type="submit" value="Tus conversaciones">
