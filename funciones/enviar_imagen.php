@@ -36,13 +36,13 @@ if (($file_size > 2*1024*1024)){
      echo "<h2>¿Esta es la imagen que quieres subir?</h2>";
      echo "<img src='$url'/>";
      ?>
-    <form action="../servicios/usuario/edit.php" method="POST">
+    <form action="/servicios/usuario/edit.php" method="POST">
         <input value="<?php echo $id?>" name="id" type="hidden">
         <input value="<?php echo $url?>" name="foto" type="hidden">
         <input type="hidden" name="modo" value="2">
         <input type="submit" value="Confirmar">
     </form>
-    <form action="../servicios/usuario/edit.php" method="GET">
+    <form action="/servicios/usuario/edit.php" method="GET">
         <input type="hidden" value="<?php echo $id?>" name="id">
         <input type="submit" value="Cancelar">
     </form>
@@ -53,7 +53,7 @@ if (($file_size > 2*1024*1024)){
      echo $pms['data']['error'];  
     } 
 } else {
-    header ("Location: ../");
+    header ("Location: /admin/admin.php");
 }
 
 ?>
