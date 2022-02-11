@@ -1,7 +1,6 @@
 <?php
 session_start();
 $user = (array) $_SESSION['usuario'];
-var_dump($user);
 if (isset($_SESSION['server_msg'])) {
     echo $_SESSION['server_msg'];
     unset($_SESSION['server_msg']);
