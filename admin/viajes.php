@@ -41,7 +41,7 @@ include './includes/header.php';
                     <input type="hidden" value="<?php echo $viaje->_id ?>" name="id">
                     <th><input type="submit" value="Eliminar"></th>
                 </form>
-                <form action="edit_viaje.php" method="GET">
+                <form action="../servicios/viaje/edit_viaje.php" method="GET">
                     <input type="hidden" value="<?php echo $viaje->_id ?>" name="id">
                     <th><input type="submit" value="Editar"></th>
                 </form>
