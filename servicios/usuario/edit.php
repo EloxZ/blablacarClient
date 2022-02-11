@@ -57,7 +57,7 @@
         <input type="submit" value="Editar">
     </form>
 
-    <a href=".." class="btn btn-danger">Cancelar</a>
+    <a href="../../admin/admin.php" class="btn btn-danger">Cancelar</a>
     <br/>
     <div class="box">
         <form enctype="multipart/form-data" action="../../funciones/enviar_imagen.php" method="POST">

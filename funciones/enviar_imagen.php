@@ -1,10 +1,7 @@
 <?php
 $file = $_FILES['imagen'];
 // Si es una imagen continuamos, si no, mandamos el error :3
-
 $id = $_POST['id'];
-
-
 $file_size = $file['size'];
 
 if (($file_size > 2*1024*1024)){      
@@ -33,22 +30,19 @@ if (($file_size > 2*1024*1024)){
     if( isset( $pms['data']['link'] ) ){
         $url=$pms['data']['link'];
      }
-    
-    
-
 
     if($url!=""){
 
      echo "<h2>¿Esta es la imagen que quieres subir?</h2>";
      echo "<img src='$url'/>";
      ?>
-    <form action="../usuario/edit.php" method="POST">
+    <form action="../servicios/usuario/edit.php" method="POST">
         <input value="<?php echo $id?>" name="id" type="hidden">
         <input value="<?php echo $url?>" name="foto" type="hidden">
         <input type="hidden" name="modo" value="2">
         <input type="submit" value="Confirmar">
     </form>
-    <form action="../usuario/edit.php" method="GET">
+    <form action="../servicios/usuario/edit.php" method="GET">
         <input type="hidden" value="<?php echo $id?>" name="id">
         <input type="submit" value="Cancelar">
     </form>
@@ -58,7 +52,8 @@ if (($file_size > 2*1024*1024)){
      echo "<h2>Ocurrió un problema :(</h2>";
      echo $pms['data']['error'];  
     } 
+} else {
+    header ("Location: ../");
 }
 
-//header ("Location: ../");
 ?>
