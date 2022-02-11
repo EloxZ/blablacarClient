@@ -1,5 +1,10 @@
 <?php
     session_start();
+    if (!isset($_SESSION['token'])) {
+        header('Location: /login.php');
+    } else if (!isset($_SESSION['admin'])) {
+        header('Location: /index.php');
+    }
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $url = 'https://blablacariw.herokuapp.com/users/'.$_POST['id'];
         
@@ -11,8 +16,7 @@
             $data = array(
                 "nombre" => $_POST['nombre'],
                 "apellido" => $_POST['apellido'],            
-                "email" => $_POST['email'],
-                "password" => $_POST['password'],
+                "email" => $_POST['email']
             );
         } else {
             $data = array(
@@ -41,29 +45,28 @@
         include '../../includes/header.php';
     }
 ?>
+<section class="container">
+    <h1>Editar usuario</h1>
 
-<h1>Editar usuario</h1>
-
-<form action="edit.php" method="POST">
-    <input value="<?php echo $data->data->usuario[0]->_id?>" name="id" type="hidden">
-    <input value="<?php echo $data->data->usuario[0]->nombre?>" name="nombre">
-    <input value="<?php echo $data->data->usuario[0]->apellido?>" name="apellido">
-    <input value="<?php echo $data->data->usuario[0]->email?>" name="email">
-    <input value="<?php echo $data->data->usuario[0]->password?>" name="password">
-    <input type="hidden" name="modo" value="1">
-    <input type="submit" value="Editar">
-</form>
-
-<a href="../index.php" class="btn btn-danger">Cancelar</a>
-<br/>
-<div class="box">
-    <form enctype="multipart/form-data" action="../funciones/enviar_imagen.php" method="POST">
-        <h3>Subir imagen</h3>
-        <input type="file" name="imagen" type="image/jpeg, image/jpg, image/png">
-        <input value="<?php echo $data->data->usuario[0]->_id?>" id="id" name="id" type="hidden">
-        <input type="submit" value="Enviar">
+    <form action="edit.php" method="POST">
+        <input value="<?php echo $data->data->usuario[0]->_id?>" name="id" type="hidden">
+        <input value="<?php echo $data->data->usuario[0]->nombre?>" name="nombre" placeholder="Nombre">
+        <input value="<?php echo $data->data->usuario[0]->apellido?>" name="apellido" placeholder="Apellido">
+        <input value="<?php echo $data->data->usuario[0]->email?>" name="email" placeholder="E-mail">
+        <input type="hidden" name="modo" value="1">
+        <input type="submit" value="Editar">
     </form>
-</div>
-    
+
+    <a href=".." class="btn btn-danger">Cancelar</a>
+    <br/>
+    <div class="box">
+        <form enctype="multipart/form-data" action="../../funciones/enviar_imagen.php" method="POST">
+            <h3>Subir imagen</h3>
+            <input type="file" name="imagen" type="image/jpeg, image/jpg, image/png">
+            <input value="<?php echo $data->data->usuario[0]->_id?>" id="id" name="id" type="hidden">
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+</section>
 
 <?php include '../../includes/footer.php' ?>

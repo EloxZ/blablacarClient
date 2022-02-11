@@ -1,8 +1,15 @@
 <?php
+if (!isset($_SESSION['token'])) {
+    header('Location: /login.php');
+} else if (!isset($_SESSION['admin'])) {
+    header('Location: /index.php');
+}
+
 $dataUsers = file_get_contents("https://blablacariw.herokuapp.com/users");
 $users = json_decode($dataUsers)->data->usuarios;
 
 include './includes/header.php';
+
 ?>
 
 <section class="container">

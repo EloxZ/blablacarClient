@@ -1,4 +1,9 @@
 <?php
+if (!isset($_SESSION['token'])) {
+    header('Location: /login.php');
+} else if (!isset($_SESSION['admin'])) {
+    header('Location: /index.php');
+}
 session_start();
 $dataViajes = file_get_contents("https://blablacariw.herokuapp.com/travels");
 $viajes = json_decode($dataViajes)->data->viajes;
