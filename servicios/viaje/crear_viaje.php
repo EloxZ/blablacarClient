@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+$user = (array) $_SESSION['usuario'];
 if (isset($_SESSION['server_msg'])) {
     echo $_SESSION['server_msg'];
     unset($_SESSION['server_msg']);
@@ -73,7 +73,7 @@ include "../../includes/header.php";
                         <label for="price">Precio (€)</label>
                         <input type="number" name="price" min="1" step="1" required>
                     </div>
-                    <input type="hidden" value=<?php echo $_SESSION['usuario']->_id ?> name="id_conductor">
+                    <input type="hidden" value=<?php echo $user['_id'] ?> name="id_conductor">
                     <div class="centro">
                         <button type="submit" value="Crear" class="submit-button">Crear</button>
                         <a href="../../index.php" style="margin: 2rem 1.5rem">Cancelar</a>
