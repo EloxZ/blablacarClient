@@ -37,7 +37,7 @@
         
         $_SESSION['server_msg'] = $result->data->msg;
         
-        header('Location: ../index.php');
+        header('Location: /admin/users.php');
     }
     else {
         $res = file_get_contents("https://blablacariw.herokuapp.com/users/".$_GET['id']);
