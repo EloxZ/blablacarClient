@@ -68,7 +68,7 @@ if (isset($_GET['code'])) {
         // Redirijo a index
         header('Location: /index.php');
     } else {
-        $_SESSION['msg'] = 'Login denegadooo';
+        $_SESSION['msg'] = 'Login denegado';
         header('Location: ../../login.php');
     }
 } else {
