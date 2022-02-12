@@ -71,7 +71,23 @@ if (isset($_SESSION['viajes_encontrados']) && !empty($_SESSION['viajes_encontrad
         } ?>
     </table>
 </section>
+<p></p>
+<p></p>
+<p></p>
 
+<?php
+include 'includes/buscador_incidencias.php';
+?>
+<p></p>
+<?php
+include 'includes/mapa.php';
+?>
+<p></p>
+<p></p>
+<p></p>
+<?php
+include 'includes/api_tiempo.php';
+?>
 <!-- .Viajes encontrados -->
 
 <?php
