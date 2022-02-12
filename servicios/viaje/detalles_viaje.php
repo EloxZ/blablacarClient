@@ -28,9 +28,9 @@
 <h3>Trayecto: <?php echo $viaje->lugar_salida?> - <?php echo $viaje->lugar_llegada?></h3>
 <h3>Conductor: <?php echo $conductor->nombre?> <?php echo $conductor->apellido?> (<?php echo $conductor->email?>)</h3>
 <?php if (!isset($conductor->foto) || $conductor->foto === "")
-    echo "<img src='https://e7.pngegg.com/pngimages/759/54/png-clipart-gray-vehicle-art-volkswagen-beetle-car-drawing-front-compact-car-volkswagen.png' style='width:50px;height:50px;'?></td>";
+    echo "<img src='https://e7.pngegg.com/pngimages/759/54/png-clipart-gray-vehicle-art-volkswagen-beetle-car-drawing-front-compact-car-volkswagen.png' style='width:50px;height:50px;'>";
     else
-    echo "<img src='".$conductor->foto."' style='width:500px;height:500px;'?></td>";
+    echo "<img src='".$conductor->foto."' style='width:500px;height:500px;'>";
 ?>
 <h3>Fecha: <?php echo gmdate("d-m-Y", $viaje->fecha_salida);?></h3>
 <h3>Hora de salida: <?php gmdate("H:i", $viaje->hora_salida); ?></h3>
