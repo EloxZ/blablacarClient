@@ -120,6 +120,7 @@ if (isset($_SESSION['usuario']) && isset($_SESSION['token'])) {
 ?>
 
 <!--- Boton a conversación --->
+<?php var_dump($user); ?>
 <form action="./servicios/mensajeria/lista_conversaciones.php" method="GET">
                 <input type="hidden" value="<?php echo $user['_id']?>" name="id">
                 <input type="submit" value="Tus conversaciones">
